@@ -53,7 +53,7 @@ class User extends Authenticatable
         return $this->belongsTo(Country::class);
     }
 
-    public function state()
+    /*public function state()
     {
         return $this->belongsTo(State::class);
     }
@@ -61,6 +61,22 @@ class User extends Authenticatable
     public function city()
     {
         return $this->belongsTo(City::class);
+    }*/
+
+    public function calendars(){
+        return $this->belongsToMany(Calendar::class);
+    }
+
+    public function departments(){
+        return $this->belongsToMany(Departament::class);
+    }
+
+    public function holidays(){
+        return $this->hasMAny(Holiday::class);
+    }
+
+    public function timesheets(){
+        return $this->hasMAny(Timesheet::class);
     }
     
 }
